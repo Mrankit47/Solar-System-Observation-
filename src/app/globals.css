@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-space-900: #030303;
+  --color-space-800: #0a0a0a;
+  --color-space-700: #141414;
+  --color-space-accent: #0ea5e9;
+  --color-space-accent-glow: rgba(14, 165, 233, 0.5);
+
+  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+:root {
+  --background: var(--color-space-900);
+  --foreground: #e5e5e5;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow: hidden; /* Important for full-screen 3D canvas */
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@utility glass-panel {
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility text-glow {
+  text-shadow: 0 0 10px var(--color-space-accent-glow);
+}

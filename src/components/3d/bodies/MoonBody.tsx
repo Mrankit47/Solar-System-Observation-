@@ -40,15 +40,15 @@ function TexturedMoon({ data, isParentFocused }: MoonBodyProps) {
 
   return (
     <group>
-      {/* Moon Orbital Path */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]}>
+      {/* Moon Orbital Path (hidden for realistic view) */}
+      {/* <mesh rotation={[-Math.PI / 2, 0, 0]}>
         <ringGeometry args={[data.orbitRadius - 0.01, data.orbitRadius + 0.01, 64]} />
         <meshBasicMaterial color={data.color} transparent opacity={0.15} side={THREE.DoubleSide} />
-      </mesh>
+      </mesh> */}
 
       <group ref={groupRef}>
         {/* Local light to ensure the moon is never fully black */}
-        <pointLight intensity={0.8} distance={data.radius * 4} color={data.color} decay={2} />
+        <pointLight intensity={0.05} distance={data.radius * 4} color={data.color} decay={2} />
         
         <mesh ref={meshRef} castShadow receiveShadow
           onClick={(e) => { e.stopPropagation(); if (groupRef.current) setMoonFocus(data, groupRef.current); }}
@@ -61,8 +61,8 @@ function TexturedMoon({ data, isParentFocused }: MoonBodyProps) {
             color="#ffffff"
             roughness={0.8} 
             metalness={0.1} 
-            emissive={data.color} 
-            emissiveIntensity={hovered ? 1.0 : 0.4} 
+            emissive={hovered ? new THREE.Color(data.color) : new THREE.Color("#000000")} 
+            emissiveIntensity={hovered ? 0.2 : 0.0} 
           />
         </mesh>
         <Html 
@@ -116,15 +116,15 @@ function ProceduralMoon({ data, isParentFocused }: MoonBodyProps) {
 
   return (
     <group>
-      {/* Moon Orbital Path */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]}>
+      {/* Moon Orbital Path (hidden for realistic view) */}
+      {/* <mesh rotation={[-Math.PI / 2, 0, 0]}>
         <ringGeometry args={[data.orbitRadius - 0.005, data.orbitRadius + 0.005, 64]} />
         <meshBasicMaterial color={data.color} transparent opacity={0.12} side={THREE.DoubleSide} />
-      </mesh>
+      </mesh> */}
 
       <group ref={groupRef}>
         {/* Local light for visibility */}
-        <pointLight intensity={0.6} distance={data.radius * 5} color={data.color} decay={2} />
+        <pointLight intensity={0.05} distance={data.radius * 5} color={data.color} decay={2} />
 
         <mesh ref={meshRef} castShadow receiveShadow
           onClick={(e) => { e.stopPropagation(); if (groupRef.current) setMoonFocus(data, groupRef.current); }}
@@ -139,8 +139,8 @@ function ProceduralMoon({ data, isParentFocused }: MoonBodyProps) {
             metalness={0.1}
             bumpMap={maps.bumpMap || undefined}
             bumpScale={0.02}
-            emissive={data.color} 
-            emissiveIntensity={hovered ? 1.0 : 0.4} 
+            emissive={hovered ? new THREE.Color(data.color) : new THREE.Color("#000000")} 
+            emissiveIntensity={hovered ? 0.2 : 0.0} 
           />
         </mesh>
         <Html 

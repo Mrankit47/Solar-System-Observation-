@@ -40,8 +40,8 @@ export default function UniverseScene() {
         <Suspense fallback={null}>
           <CinematicCamera />
           {/* Cinematic Space Ambient Lighting */}
-          <ambientLight color="#ffffff" intensity={0.25} />
-          <hemisphereLight color="#ffffff" groundColor="#444466" intensity={0.35} />
+          <ambientLight color="#ffffff" intensity={0.03} />
+          <hemisphereLight color="#ffffff" groundColor="#050510" intensity={0.04} />
           {/* Background */}
           <DeepSpace />
           

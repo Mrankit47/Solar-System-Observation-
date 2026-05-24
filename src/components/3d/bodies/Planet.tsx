@@ -132,9 +132,9 @@ export default function Planet({ data }: PlanetProps) {
           bumpMap={proceduralMaps.bumpMap}
           bumpScale={data.type === "Terrestrial" ? 0.05 : 0.01}
           roughnessMap={proceduralMaps.roughnessMap}
-          emissive={nightMap ? new THREE.Color("#ffffff") : new THREE.Color(data.color)}
+          emissive={nightMap ? new THREE.Color("#ffffff") : (hovered ? new THREE.Color(data.color) : new THREE.Color("#000000"))}
           emissiveMap={nightMap}
-          emissiveIntensity={nightMap ? 2.5 : (hovered ? 0.4 : 0.05)}
+          emissiveIntensity={nightMap ? 1.2 : (hovered ? 0.15 : 0.0)}
           clearcoat={data.id === "earth" ? 0.3 : 0}
           clearcoatRoughness={0.2}
         />

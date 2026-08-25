@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0e1330"/>
+      <stop offset="70%" stop-color="#070914"/>
+      <stop offset="100%" stop-color="#020307"/>
+    </radialGradient>
+
+    <!-- Border Glow Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="50%" stop-color="#9d4edd"/>
+      <stop offset="100%" stop-color="#f72585"/>
+    </linearGradient>
+
+    <!-- Sun Outer Glow -->
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#ffe600"/>
+      <stop offset="55%" stop-color="#ff7700"/>
+      <stop offset="85%" stop-color="#ff2a00" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ff0055" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Sun Core Disc -->
+    <radialGradient id="sunCore" cx="38%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#fff275"/>
+      <stop offset="70%" stop-color="#ff8c00"/>
+      <stop offset="100%" stop-color="#e52e00"/>
+    </radialGradient>
+
+    <!-- Orbit 1 Cyan Glow Gradient -->
+    <linearGradient id="orbitCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#4facfe" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00f2fe" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Orbit 2 Purple/Magenta Gradient -->
+    <linearGradient id="orbitPurple" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f72585" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#b5179e" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#7209b7" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Orbit 3 Electric Blue Gradient -->
+    <linearGradient id="orbitBlue" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4361ee" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#4895ef" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#4cc9f0" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <!-- Planet 1: Terra/Cyan Blue -->
+    <radialGradient id="planetTerra" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#a8ffeb"/>
+      <stop offset="45%" stop-color="#00b4d8"/>
+      <stop offset="100%" stop-color="#03045e"/>
+    </radialGradient>
+
+    <!-- Planet 2: Pink/Magenta -->
+    <radialGradient id="planetMagenta" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffb3c6"/>
+      <stop offset="45%" stop-color="#ff007f"/>
+      <stop offset="100%" stop-color="#590d22"/>
+    </radialGradient>
+
+    <!-- Planet 3: Golden Mars -->
+    <radialGradient id="planetGold" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffe6a7"/>
+      <stop offset="45%" stop-color="#f77f00"/>
+      <stop offset="100%" stop-color="#6f1d1b"/>
+    </radialGradient>
+
+    <!-- Planet 4: Lavender/Purple -->
+    <radialGradient id="planetLavender" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#e0aaff"/>
+      <stop offset="50%" stop-color="#7b2cbf"/>
+      <stop offset="100%" stop-color="#240046"/>
+    </radialGradient>
+
+    <!-- Glow Filters -->
+    <filter id="glowSubtle" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="glowIntense" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur3"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur3"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="sunHalo" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="24" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Container Base with Smooth Squircle -->
+  <rect x="24" y="24" width="464" height="464" rx="108" ry="108" fill="url(#bgGrad)"/>
+  
+  <!-- Sleek Glowing Border -->
+  <rect x="24" y="24" width="464" height="464" rx="108" ry="108" fill="none" stroke="url(#borderGrad)" stroke-width="8" opacity="0.85" filter="url(#glowSubtle)"/>
+
+  <!-- Starfield Sparkles inside icon -->
+  <g opacity="0.75">
+    <circle cx="110" cy="115" r="2.5" fill="#ffffff" opacity="0.9"/>
+    <circle cx="390" cy="105" r="3" fill="#00f2fe" opacity="0.8"/>
+    <circle cx="105" cy="380" r="2" fill="#e0aaff" opacity="0.7"/>
+    <circle cx="410" cy="375" r="2.5" fill="#ffffff" opacity="0.85"/>
+    <circle cx="160" cy="85" r="1.5" fill="#ffffff" opacity="0.6"/>
+    <circle cx="340" cy="425" r="2" fill="#ffb3c6" opacity="0.75"/>
+    <circle cx="75" cy="245" r="2" fill="#4cc9f0" opacity="0.5"/>
+    <circle cx="435" cy="235" r="1.5" fill="#ffffff" opacity="0.6"/>
+  </g>
+
+  <!-- Cosmic Center Nebula Glow -->
+  <circle cx="256" cy="256" r="130" fill="#ff6b00" opacity="0.18" filter="url(#sunHalo)"/>
+  <circle cx="256" cy="256" r="110" fill="#7b2cbf" opacity="0.25" filter="url(#sunHalo)"/>
+  <circle cx="256" cy="256" r="80" fill="#00f2fe" opacity="0.2" filter="url(#sunHalo)"/>
+
+  <!-- ================= ORBITS LAYER ================= -->
+  <g id="orbitalRings">
+    <!-- Orbit 1: Tilted -32 deg (Cyan Neon) -->
+    <g transform="translate(256, 256) rotate(-32) translate(-256, -256)">
+      <ellipse cx="256" cy="256" rx="175" ry="68" fill="none" stroke="url(#orbitCyan)" stroke-width="4.5" filter="url(#glowSubtle)"/>
+      <ellipse cx="256" cy="256" rx="175" ry="68" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9"/>
+    </g>
+
+    <!-- Orbit 2: Tilted +38 deg (Purple/Pink Neon) -->
+    <g transform="translate(256, 256) rotate(38) translate(-256, -256)">
+      <ellipse cx="256" cy="256" rx="185" ry="72" fill="none" stroke="url(#orbitPurple)" stroke-width="4.5" filter="url(#glowSubtle)"/>
+      <ellipse cx="256" cy="256" rx="185" ry="72" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.85"/>
+    </g>
+
+    <!-- Orbit 3: Tilted 82 deg / near vertical (Electric Blue Neon) -->
+    <g transform="translate(256, 256) rotate(85) translate(-256, -256)">
+      <ellipse cx="256" cy="256" rx="192" ry="64" fill="none" stroke="url(#orbitBlue)" stroke-width="3.5" stroke-dasharray="14 6" opacity="0.75"/>
+      <ellipse cx="256" cy="256" rx="192" ry="64" fill="none" stroke="url(#orbitBlue)" stroke-width="2" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- ================= THE CENTRAL SUN ================= -->
+  <circle cx="256" cy="256" r="92" fill="url(#sunGlow)" filter="url(#sunHalo)"/>
+  <circle cx="256" cy="256" r="68" fill="url(#sunGlow)" filter="url(#glowIntense)"/>
+  <circle cx="256" cy="256" r="50" fill="url(#sunCore)" stroke="#fff" stroke-width="2" stroke-opacity="0.9"/>
+  <ellipse cx="242" cy="240" rx="18" ry="14" fill="#ffffff" opacity="0.85" filter="url(#glowSubtle)"/>
+  <circle cx="236" cy="235" r="6" fill="#ffffff" opacity="0.95"/>
+
+  <!-- ================= ORBITING PLANETS & CELESTIAL BODIES ================= -->
+  <!-- Planet 1 (Cyan Orbit - Top Right) -->
+  <g filter="url(#glowIntense)">
+    <circle cx="395" cy="168" r="16" fill="url(#planetTerra)" stroke="#a8ffeb" stroke-width="2.5"/>
+    <circle cx="390" cy="163" r="4.5" fill="#ffffff" opacity="0.85"/>
+    <circle cx="418" cy="154" r="4.5" fill="#e0fbfc" stroke="#00f2fe" stroke-width="1.5"/>
+  </g>
+
+  <!-- Planet 2 (Purple Orbit - Top Left) -->
+  <g filter="url(#glowIntense)">
+    <circle cx="125" cy="175" r="14" fill="url(#planetMagenta)" stroke="#ffb3c6" stroke-width="2"/>
+    <circle cx="120" cy="170" r="4" fill="#ffffff" opacity="0.85"/>
+  </g>
+
+  <!-- Planet 3 (Gold Mars / Gas Planet - Bottom Right) -->
+  <g filter="url(#glowIntense)">
+    <circle cx="365" cy="355" r="18" fill="url(#planetGold)" stroke="#ffe6a7" stroke-width="2.5"/>
+    <ellipse cx="365" cy="355" rx="26" ry="6" fill="none" stroke="#ffd166" stroke-width="2.5" transform="rotate(-20 365 355)" opacity="0.9"/>
+    <circle cx="359" cy="349" r="4.5" fill="#ffffff" opacity="0.9"/>
+  </g>
+
+  <!-- Planet 4 (Deep Violet Orbit - Bottom Left) -->
+  <g filter="url(#glowIntense)">
+    <circle cx="145" cy="342" r="12" fill="url(#planetLavender)" stroke="#e0aaff" stroke-width="2"/>
+    <circle cx="141" cy="338" r="3.5" fill="#ffffff" opacity="0.85"/>
+  </g>
+
+  <!-- Distant Dwarf Ice Planet (Top Center) -->
+  <g filter="url(#glowSubtle)">
+    <circle cx="268" cy="68" r="7.5" fill="#48cae4" stroke="#caf0f8" stroke-width="1.5"/>
+    <circle cx="266" cy="66" r="2" fill="#ffffff" opacity="0.9"/>
+  </g>
+</svg>
